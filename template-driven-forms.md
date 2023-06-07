@@ -76,11 +76,21 @@ selector : form:not([ngNoForm]):not([formGroup]),ng-form,[ngForm]
 - Chú ý là phải nằm trong form.
 
 # Control Statuses
+- là các class biểu hiện trạng thái của form-control. 
+- class ng-untouched và ng-touched : khi focus vào và ko focus nữa.
+- class ng-pristine (chưa thay đổi gì) và ng-dirty (value của input đã bị thay đổi.)
+- class ng-valid sẽ hiện khi value pass validator, ng-invalid sẽ ngược lại.
+- class ng-pending khi mà có async validator.
+- class ng-submitted ở form khi mà form đã được click submit.
+- state của form sẽ phụ thuộc vào state của child và child group.
+  * Ví dụ : khi mà 1 chilđ input có touched thì form cũng sẽ có class ng-touched.
+- tương tự với group form control, chỉ cần 1 child có status thì cha cũng sẽ cập nhât.
 
+- style css mẫu : 
 
+```
+  .ng-valid.ng-dirty:not([ngModelGroup]):not(form) {  .... }
 
-
-
-
+```
 
 
