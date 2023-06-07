@@ -35,3 +35,52 @@ selector : form:not([ngNoForm]):not([formGroup]),ng-form,[ngForm]
 - Thì ngModel sẽ không được register trong ngForm.
 - Trường hợp dùng standalone : nhớ khi nào cần thì dùng :v
 - Note : khi ta dùng 1 ngModel bên ngoài form thì nó sẽ được xem như là standalone ngModel.
+
+# Submit 
+
+```
+  <form class="form" #form="ngForm" (ngSubmit)="onSubmitForm(form, $event)" [ngFormOptions]="{updateOn: 'blur'}">
+  </form>
+
+``` 
+
+- ngForm là tham chiếu đến directive ngForm (xem exportAs của đirective.)
+
+# group input 
+
+```
+        <div ngModelGroup="address">
+            <div class="form-field">
+                <label for="name">Address Number 1</label>
+                <input [(ngModel)]="userInfo.addressNumber1" name="addressNumber1" type="text" id="addressNumber1">
+            </div>
+            <div class="form-field">
+                <label for="name">Address Number 2</label>
+                <input [(ngModel)]="userInfo.addressNumber2" name="addressNumber2" type="text" id="addressNumber2">
+            </div>
+        </div>
+
+
+  => {
+    "first-name": "",
+    "last-name": "",
+    "address": {
+        "addressNumber1": "",
+        "addressNumber2": ""
+    }
+}
+
+```
+
+- Để tạo group input ta dùng directive : ngModelGroup="anyName" 
+- Chú ý là phải nằm trong form.
+
+# Control Statuses
+
+
+
+
+
+
+
+
